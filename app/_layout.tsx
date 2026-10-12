@@ -13,13 +13,12 @@ import {
   LoadingState,
   PrimaryButton,
   ScreenContainer,
-  SecondaryButton,
 } from "../src/components/ui";
 import { colors } from "../src/theme/tokens";
 
 export const unstable_settings = { initialRouteName: "index" };
 function Navigation() {
-  const { status, data, mode, loadError, reload, switchMode } = useApp();
+  const { status, data, loadError, reload } = useApp();
   if (status === "loading")
     return (
       <ScreenContainer scroll={false}>
@@ -34,22 +33,12 @@ function Navigation() {
           description={loadError ?? "Попробуй ещё раз."}
           icon="wifi-off"
           action={
-            <>
-              <PrimaryButton
-                label="Повторить попытку"
-                onPress={() => {
-                  void reload();
-                }}
-              />
-              {mode === "api" && (
-                <SecondaryButton
-                  label="Открыть деморежим"
-                  onPress={() => {
-                    void switchMode("demo");
-                  }}
-                />
-              )}
-            </>
+            <PrimaryButton
+              label="Повторить попытку"
+              onPress={() => {
+                void reload();
+              }}
+            />
           }
         />
       </ScreenContainer>

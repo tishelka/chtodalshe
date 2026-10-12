@@ -2,7 +2,6 @@ import { defineConfig, devices } from "@playwright/test";
 export default defineConfig({
   globalTeardown: "./tests/e2e/teardown.ts",
   testDir: "./tests/e2e",
-  testIgnore: ["**/remote/**"],
   fullyParallel: false,
   workers: 1,
   timeout: 30000,
@@ -22,7 +21,7 @@ export default defineConfig({
   webServer: {
     command: "node tests/e2e/serve.mjs",
     url: "http://127.0.0.1:4173",
-    reuseExistingServer: !process.env.CI,
+    reuseExistingServer: false,
     timeout: 30000,
   },
 });

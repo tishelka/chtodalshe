@@ -3,7 +3,6 @@ import Feather from "@expo/vector-icons/Feather";
 import { StyleSheet, Text, View } from "react-native";
 import { useApp } from "./AppProvider";
 import { InterestPicker } from "../onboarding/InterestPicker";
-import { hasBackendConfiguration } from "../../lib/backend";
 import { ActionNotice } from "../../components/ActionNotice";
 import { ConfirmDialog } from "../../components/ConfirmDialog";
 import {
@@ -16,12 +15,10 @@ import {
 import { colors, fonts } from "../../theme/tokens";
 import type { Category } from "../../types/domain";
 export function ProfileScreen() {
-  const { data, mode, busy, saveInterests, clearHistory, switchMode } =
-    useApp();
+  const { data, busy, saveInterests, clearHistory } = useApp();
   const [draft, setDraft] = useState<Category[] | null>(null);
   const selected = draft ?? data.preferences.interests;
   const [confirmClear, setConfirmClear] = useState(false);
-  const [confirmSwitch, setConfirmSwitch] = useState(false);
   const [saved, setSaved] = useState(false);
   const changed =
     selected.slice().sort().join(",") !==
@@ -39,22 +36,15 @@ export function ProfileScreen() {
         subtitle="Немного о тебе, чтобы идеи были ближе."
       />
       <ActionNotice />
-      <View style={styles.mode}>
-        <View style={styles.modeIcon}>
-          <Feather
-            name={mode === "demo" ? "smartphone" : "cloud"}
-            size={25}
-            color={colors.primary}
-          />
+      <View style={styles.storageInfo}>
+        <View style={styles.storageIcon}>
+          <Feather name="cloud" size={25} color={colors.primary} />
         </View>
         <View style={{ flex: 1, gap: 5 }}>
-          <Text style={styles.modeTitle}>
-            {mode === "demo" ? "Демонстрационный режим" : "Серверный режим"}
-          </Text>
-          <Text style={styles.modeDescription}>
-            {mode === "demo"
-              ? "Твои данные сохраняются на этом устройстве. Подбор работает без интернета."
-              : "Твои данные сохраняются в подключённой базе. Для работы нужен интернет."}
+          <Text style={styles.storageTitle}>Данные сохраняются на сервере</Text>
+          <Text style={styles.storageDescription}>
+            Интересы, избранное и история доступны с любого устройства. В
+            учебной версии профиль общий для всех.
           </Text>
         </View>
       </View>
@@ -95,16 +85,6 @@ export function ProfileScreen() {
           onPress={() => setConfirmClear(true)}
           disabled={!data.history.length || busy}
         />
-        {hasBackendConfiguration && (
-          <SecondaryButton
-            label={
-              mode === "demo" ? "Подключить сервер" : "Открыть деморежим"
-            }
-            icon="refresh-cw"
-            onPress={() => setConfirmSwitch(true)}
-            disabled={busy}
-          />
-        )}
       </View>
       <View style={styles.about}>
         <Feather name="compass" color={colors.primary} size={26} />
@@ -117,7 +97,7 @@ export function ProfileScreen() {
       <ConfirmDialog
         visible={confirmClear}
         title="Очистить историю?"
-        description="Все записи истории будут удалены. Избранное и интересы сохранятся."
+        description="Все записи общего профиля будут удалены из истории на всех устройствах. Избранное и интересы сохранятся."
         confirmLabel="Да, очистить"
         busy={busy}
         onCancel={() => setConfirmClear(false)}
@@ -125,23 +105,11 @@ export function ProfileScreen() {
           void clearHistory().then(() => setConfirmClear(false));
         }}
       />
-      <ConfirmDialog
-        visible={confirmSwitch}
-        title="Переключить режим?"
-        description="В каждом режиме свой набор интересов, избранного и истории. Данные сохранятся отдельно и не будут переноситься автоматически."
-        confirmLabel="Переключить"
-        busy={busy}
-        onCancel={() => setConfirmSwitch(false)}
-        onConfirm={() => {
-          setConfirmSwitch(false);
-          void switchMode(mode === "demo" ? "api" : "demo");
-        }}
-      />
     </ScreenContainer>
   );
 }
 const styles = StyleSheet.create({
-  mode: {
+  storageInfo: {
     backgroundColor: colors.primarySoft,
     borderRadius: 22,
     padding: 20,
@@ -149,7 +117,7 @@ const styles = StyleSheet.create({
     gap: 14,
     alignItems: "center",
   },
-  modeIcon: {
+  storageIcon: {
     width: 48,
     height: 48,
     borderRadius: 16,
@@ -157,8 +125,8 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
-  modeTitle: { fontFamily: fonts.bold, fontSize: 14, color: colors.text },
-  modeDescription: {
+  storageTitle: { fontFamily: fonts.bold, fontSize: 14, color: colors.text },
+  storageDescription: {
     fontFamily: fonts.regular,
     fontSize: 11,
     lineHeight: 19,

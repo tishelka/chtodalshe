@@ -114,9 +114,3 @@ class HistoryIn(ApiModel):
 
 class HistoryPatch(ApiModel):
     chosen: bool
-
-
-class AnonymousSessionOut(ApiModel):
-    access_token: str
-    token_type: str = "bearer"
-    user_id: UUID

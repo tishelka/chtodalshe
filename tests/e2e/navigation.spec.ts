@@ -1,14 +1,17 @@
-import { expect, test } from "@playwright/test";
+import { expect, test, onboard } from "./helpers";
 
 test("вкладки, открытие карточки, удаление избранного и системный возврат в форму", async ({
   page,
 }) => {
-  await page.goto("/");
-  await page.getByRole("button", { name: "Начать", exact: true }).click();
-  await page.getByRole("button", { name: "Пропустить", exact: true }).click();
-  const tabLabel = await page.getByRole("tab", { name: "Главная", exact: true }).getByText("Главная", { exact: true }).boundingBox();
+  await onboard(page);
+  const tabLabel = await page
+    .getByRole("tab", { name: "Главная", exact: true })
+    .getByText("Главная", { exact: true })
+    .boundingBox();
   expect(tabLabel).not.toBeNull();
-  expect(tabLabel!.y + tabLabel!.height).toBeLessThanOrEqual(page.viewportSize()!.height);
+  expect(tabLabel!.y + tabLabel!.height).toBeLessThanOrEqual(
+    page.viewportSize()!.height,
+  );
   await page
     .getByRole("button", { name: "Подобрать занятие", exact: true })
     .click();
@@ -49,6 +52,6 @@ test("вкладки, открытие карточки, удаление изб
   await expect(page.getByText("План выбран", { exact: true })).toBeVisible();
   await page.getByRole("tab", { name: "Профиль", exact: true }).click();
   await expect(
-    page.getByText("Демонстрационный режим", { exact: true }),
+    page.getByText("Данные сохраняются на сервере", { exact: true }),
   ).toBeVisible();
 });

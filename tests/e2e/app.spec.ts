@@ -1,21 +1,6 @@
-import { expect, test, type Page } from "@playwright/test";
+import type { Page } from "@playwright/test";
+import { expect, test, onboard, apiUrl } from "./helpers";
 import { DEFAULT_FILTERS } from "../../src/types/domain";
-import { DEMO_STORAGE_KEY } from "../../src/data/localRepository";
-async function onboard(page: Page, skip = true) {
-  await page.goto("/");
-  await page.getByRole("button", { name: "Начать", exact: true }).click();
-  if (!skip)
-    await page
-      .getByRole("button", { name: "Настольные игры", exact: true })
-      .click();
-  await page
-    .getByRole("button", {
-      name: skip ? "Пропустить" : "Продолжить",
-      exact: true,
-    })
-    .click();
-  await expect(page.getByText("Чем займёмся?", { exact: true })).toBeVisible();
-}
 async function goHome(page: Page) {
   await page.goto("/");
   await expect(page.getByText("Чем займёмся?", { exact: true })).toBeVisible();
@@ -23,6 +8,7 @@ async function goHome(page: Page) {
 
 test("полный сценарий: интересы, подбор, другое, избранное, история, перезапуск, повтор, сюрприз", async ({
   page,
+  request,
 }) => {
   const errors: string[] = [];
   page.on("pageerror", (error) => errors.push(error.message));
@@ -83,41 +69,40 @@ test("полный сценарий: интересы, подбор, друго�
   await goHome(page);
   await page.getByRole("button", { name: "Удиви меня", exact: true }).click();
   await expect(page.getByTestId("activity-title")).toBeVisible();
-  const stored = await page.evaluate(
-    (key) => JSON.parse(localStorage.getItem(key) ?? "{}"),
-    DEMO_STORAGE_KEY,
-  );
-  expect(stored.data.preferences.interests).toEqual(["board_games"]);
-  expect(stored.data.preferences.lastFilters.participants).toBe(3);
-  expect(stored.data.history[0].filters).toEqual({
+  const preferences = await (await request.get(`${apiUrl}/preferences`)).json();
+  const history = await (await request.get(`${apiUrl}/history`)).json();
+  expect(preferences.interests).toEqual(["board_games"]);
+  expect(preferences.lastFilters.participants).toBe(3);
+  expect(history[0].filters).toEqual({
     participants: null,
     availableMinutes: null,
     budgetPerPerson: null,
     location: "any",
     mood: "any",
   });
-  expect(stored.data.favorites).toHaveLength(1);
+  expect(await (await request.get(`${apiUrl}/favorites`)).json()).toHaveLength(
+    1,
+  );
   expect(errors).toEqual([]);
 });
 
 test("пропуск онбординга, границы счётчика, пустая выдача и изменение условий", async ({
   page,
+  request,
 }) => {
   await onboard(page);
-  // Каталог покрывает все стандартные сочетания; моделируем сохранённый короткий лимит.
-  await page.evaluate(
-    ({ key, filters }) => {
-      const stored = JSON.parse(localStorage.getItem(key) ?? "{}");
-      stored.data.preferences.lastFilters = {
-        ...filters,
+  await request.put(`${apiUrl}/preferences`, {
+    data: {
+      interests: [],
+      onboardingCompleted: true,
+      lastFilters: {
+        ...DEFAULT_FILTERS,
         availableMinutes: 5,
         budgetPerPerson: 0,
         location: "venue",
-      };
-      localStorage.setItem(key, JSON.stringify(stored));
+      },
     },
-    { key: DEMO_STORAGE_KEY, filters: DEFAULT_FILTERS },
-  );
+  });
   await goHome(page);
   await page.getByRole("button", { name: "Повторить", exact: true }).click();
   await expect(
@@ -154,9 +139,8 @@ test("пропуск онбординга, границы счётчика, пу
   await expect(page.getByTestId("activity-title")).toBeVisible();
 });
 
-test("деморежим после загрузки работает офлайн, интересы сохраняются, очистка требует подтверждения", async ({
+test("интересы сохраняются на сервере, очистка истории требует подтверждения", async ({
   page,
-  context,
 }) => {
   await onboard(page);
   await page.goto("/profile");
@@ -172,14 +156,12 @@ test("деморежим после загрузки работает офлай
     page.getByRole("button", { name: "Прогулки", exact: true }),
   ).toHaveAttribute("aria-pressed", "true");
   await goHome(page);
-  await context.setOffline(true);
   await page.getByRole("button", { name: "Удиви меня", exact: true }).click();
   await expect(page.getByTestId("activity-title")).toBeVisible();
   await page.getByRole("button", { name: "В избранное", exact: true }).click();
   await expect(
     page.getByRole("button", { name: "В избранном", exact: true }),
   ).toBeVisible();
-  await context.setOffline(false);
   await page.goto("/profile");
   await page
     .getByRole("button", { name: "Очистить историю", exact: true })
@@ -235,15 +217,17 @@ test("ошибка записи в избранное показывает по�
   await onboard(page);
   await page.getByRole("button", { name: "Удиви меня", exact: true }).click();
   await expect(page.getByTestId("activity-title")).toBeVisible();
-  await page.evaluate(() => {
-    const original = Storage.prototype.setItem;
-    Storage.prototype.setItem = function (key: string, value: string) {
-      if (key === "whatnext.demo.v1") {
-        Storage.prototype.setItem = original;
-        throw new Error("test write failure");
-      }
-      original.call(this, key, value);
-    };
+  let failed = false;
+  await page.route(`${apiUrl}/favorites/**`, (route) => {
+    if (!failed && route.request().method() === "PUT") {
+      failed = true;
+      return route.fulfill({
+        status: 503,
+        contentType: "application/json",
+        body: "{}",
+      });
+    }
+    return route.continue();
   });
   await page.getByRole("button", { name: "В избранное", exact: true }).click();
   await expect(
@@ -262,41 +246,63 @@ test("ошибка записи в избранное показывает по�
   ).toBeVisible();
 });
 
-test("повтор после ошибки сохранения подбора открывает результат без дубликатов", async ({ page }) => {
+test("повтор после ошибки сохранения подбора открывает результат без дубликатов", async ({
+  page,
+  request,
+}) => {
   await onboard(page);
-  await page.getByRole("button", { name: "Подобрать занятие", exact: true }).click();
-  await page.evaluate(() => {
-    const original = Storage.prototype.setItem;
-    let writes = 0;
-    Storage.prototype.setItem = function (key: string, value: string) {
-      if (key === "whatnext.demo.v1" && ++writes === 2) {
-        Storage.prototype.setItem = original;
-        throw new Error("test history write failure");
-      }
-      original.call(this, key, value);
-    };
+  await page
+    .getByRole("button", { name: "Подобрать занятие", exact: true })
+    .click();
+  let failed = false;
+  await page.route(`${apiUrl}/history/**`, async (route) => {
+    if (!failed && route.request().method() === "PUT") {
+      failed = true;
+      // Сервер записал историю, но клиент не получил успешный ответ.
+      await route.fetch();
+      return route.fulfill({
+        status: 503,
+        contentType: "application/json",
+        body: "{}",
+      });
+    }
+    return route.continue();
   });
-  await page.getByRole("button", { name: "Предложить занятие", exact: true }).click();
-  await expect(page.getByRole("alert")).toContainText("Не удалось сохранить подбор и историю.");
-  await page.getByRole("button", { name: "Повторить попытку", exact: true }).click();
+  await page
+    .getByRole("button", { name: "Предложить занятие", exact: true })
+    .click();
+  await expect(page.getByRole("alert")).toContainText(
+    "Не удалось сохранить подбор и историю.",
+  );
+  await page
+    .getByRole("button", { name: "Повторить попытку", exact: true })
+    .click();
   await expect(page.getByTestId("activity-title")).toBeVisible();
-  expect(await page.evaluate(key => JSON.parse(localStorage.getItem(key) ?? "{}").data.history.length, DEMO_STORAGE_KEY)).toBe(1);
+  expect(await (await request.get(`${apiUrl}/history`)).json()).toHaveLength(1);
 });
 
-test("повреждённое хранилище даёт ошибку загрузки и не удаляет данные", async ({
+test("недоступный сервер даёт ошибку загрузки и позволяет повторить запрос", async ({
   page,
 }) => {
-  await page.addInitScript(
-    (key) => localStorage.setItem(key, "broken"),
-    DEMO_STORAGE_KEY,
+  await page.route(`${apiUrl}/**`, (route) =>
+    route.fulfill({
+      status: 503,
+      contentType: "application/json",
+      body: "{}",
+      headers: { "Access-Control-Allow-Origin": "*" },
+    }),
   );
   await page.goto("/");
   await expect(
     page.getByText("Не удалось загрузить данные", { exact: true }),
   ).toBeVisible();
-  expect(
-    await page.evaluate((key) => localStorage.getItem(key), DEMO_STORAGE_KEY),
-  ).toBe("broken");
+  await page.unroute(`${apiUrl}/**`);
+  await page
+    .getByRole("button", { name: "Повторить попытку", exact: true })
+    .click();
+  await expect(
+    page.getByRole("button", { name: "Начать", exact: true }),
+  ).toBeVisible();
 });
 
 test("маленький экран не имеет горизонтального переполнения", async ({

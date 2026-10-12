@@ -10,7 +10,7 @@ from sqlalchemy.exc import IntegrityError, SQLAlchemyError
 
 from .config import Settings
 from .database import Db, make_engine, make_session_factory
-from .routers import activities, favorites, history, preferences, sessions
+from .routers import activities, favorites, history, preferences
 
 logger = logging.getLogger(__name__)
 
@@ -30,8 +30,8 @@ def create_app(settings: Settings | None = None) -> FastAPI:
         CORSMiddleware,
         allow_origins=settings.cors_origins,
         allow_credentials=False,
-        allow_methods=["GET", "POST", "PUT", "PATCH", "DELETE"],
-        allow_headers=["Authorization", "Content-Type"],
+        allow_methods=["GET", "PUT", "PATCH", "DELETE"],
+        allow_headers=["Content-Type"],
     )
 
     @application.exception_handler(RequestValidationError)
@@ -60,7 +60,6 @@ def create_app(settings: Settings | None = None) -> FastAPI:
         return {"status": "ok"}
 
     for router in (
-        sessions.router,
         activities.router,
         preferences.router,
         favorites.router,

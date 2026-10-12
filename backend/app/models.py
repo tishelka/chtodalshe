@@ -1,7 +1,7 @@
 from datetime import datetime
 from uuid import UUID, uuid4
 
-from sqlalchemy import Boolean, DateTime, ForeignKey, Index, Integer, String, Text, func, text
+from sqlalchemy import Boolean, DateTime, ForeignKey, Index, Integer, Text, func, text
 from sqlalchemy.dialects.postgresql import ARRAY, JSONB
 from sqlalchemy.orm import Mapped, mapped_column
 
@@ -11,13 +11,6 @@ from .database import Base
 class User(Base):
     __tablename__ = "users"
     id: Mapped[UUID] = mapped_column(primary_key=True, default=uuid4)
-    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
-
-
-class UserSession(Base):
-    __tablename__ = "user_sessions"
-    token_hash: Mapped[str] = mapped_column(String(64), primary_key=True)
-    user_id: Mapped[UUID] = mapped_column(ForeignKey("users.id", ondelete="CASCADE"))
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
 
 
@@ -61,7 +54,7 @@ class Favorite(Base):
 
 class RecommendationHistory(Base):
     __tablename__ = "recommendation_history"
-    # ID уникален внутри пользователя: чужой UUID нельзя использовать для перезаписи.
+    # Повторная отправка того же ID не создаёт новую запись.
     user_id: Mapped[UUID] = mapped_column(
         ForeignKey("users.id", ondelete="CASCADE"), primary_key=True
     )
@@ -72,7 +65,6 @@ class RecommendationHistory(Base):
     chosen: Mapped[bool] = mapped_column(Boolean, default=False)
 
 
-Index("user_sessions_user_idx", UserSession.user_id)
 Index("activities_active_category_idx", Activity.category, postgresql_where=text("is_active"))
 Index("favorites_activity_idx", Favorite.activity_id)
 Index(

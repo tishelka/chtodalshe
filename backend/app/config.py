@@ -13,8 +13,8 @@ class Settings(BaseSettings):
     cors_origins: list[str] = [
         "http://localhost:8081",
         "http://127.0.0.1:8081",
-        "http://localhost:4174",
-        "http://127.0.0.1:4174",
+        "http://localhost:4173",
+        "http://127.0.0.1:4173",
     ]
 
     @field_validator("database_url")

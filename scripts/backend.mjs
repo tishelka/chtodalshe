@@ -20,6 +20,7 @@ const commands = {
     "8000",
   ],
   test: ["-m", "pytest", "-q"],
+  e2e: ["-m", "tests.run_e2e", process.execPath],
   lint: ["-m", "ruff", "check", "."],
 };
 const name = process.argv[2];

@@ -7,7 +7,6 @@ import {
   type Filters,
   type HistoryEntry,
   type Preferences,
-  type UserData,
 } from "../types/domain";
 import { validateFilters } from "../features/recommendations/engine";
 
@@ -75,21 +74,6 @@ export function parseHistory(value: unknown): HistoryEntry {
     createdAt: value.createdAt,
     filters: parseFilters(value.filters),
     chosen: value.chosen,
-  };
-}
-export function parseUserData(value: unknown): UserData {
-  if (
-    !isRecord(value) ||
-    !isStringArray(value.favorites) ||
-    !Array.isArray(value.history)
-  )
-    throw new Error("invalid user data");
-  return {
-    preferences: parsePreferences(value.preferences),
-    favorites: [...new Set(value.favorites)],
-    history: value.history
-      .map(parseHistory)
-      .sort((a, b) => b.createdAt.localeCompare(a.createdAt)),
   };
 }
 export function parseActivity(value: unknown): Activity {

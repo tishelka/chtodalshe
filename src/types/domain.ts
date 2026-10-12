@@ -56,7 +56,6 @@ export interface UserData {
   favorites: string[];
   history: HistoryEntry[];
 }
-export type DataMode = "demo" | "api";
 
 export const DEFAULT_FILTERS: Filters = {
   participants: 1,

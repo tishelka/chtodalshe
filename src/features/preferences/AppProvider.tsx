@@ -1,4 +1,3 @@
-import AsyncStorage from "@react-native-async-storage/async-storage";
 import { randomUUID } from "expo-crypto";
 import {
   createContext,
@@ -9,7 +8,7 @@ import {
   useState,
   type ReactNode,
 } from "react";
-import { createRepository, hasBackendConfiguration } from "../../lib/backend";
+import { createRepository } from "../../lib/backend";
 import type { Repository } from "../../data/repository";
 import {
   recommend,
@@ -19,7 +18,6 @@ import {
   emptyUserData,
   type Activity,
   type Category,
-  type DataMode,
   type Filters,
   type HistoryEntry,
   type UserData,
@@ -37,7 +35,6 @@ interface ActionError {
 }
 interface AppContextValue {
   status: "loading" | "ready" | "error";
-  mode: DataMode;
   loadError: string | null;
   actionError: ActionError | null;
   busy: boolean;
@@ -45,7 +42,6 @@ interface AppContextValue {
   activities: readonly Activity[];
   series: RecommendationSeries | null;
   reload: () => Promise<void>;
-  switchMode: (mode: DataMode) => Promise<void>;
   dismissError: () => void;
   saveInterests: (
     interests: Category[],
@@ -58,13 +54,9 @@ interface AppContextValue {
   nextRecommendation: (restart?: boolean) => Promise<boolean>;
 }
 const AppContext = createContext<AppContextValue | null>(null);
-const MODE_KEY = "whatnext.selected-mode.v1";
 
 export function AppProvider({ children }: { children: ReactNode }) {
   const [status, setStatus] = useState<AppContextValue["status"]>("loading");
-  const [mode, setMode] = useState<DataMode>(
-    hasBackendConfiguration ? "api" : "demo",
-  );
   const [loadError, setLoadError] = useState<string | null>(null);
   const [actionError, setActionError] = useState<ActionError | null>(null);
   const [busy, setBusy] = useState(false);
@@ -82,82 +74,58 @@ export function AppProvider({ children }: { children: ReactNode }) {
     setData(next);
   }, []);
 
-  const loadMode = useCallback(
-    async (requestedMode: DataMode, persist = false) => {
-      const request = ++generation.current;
-      setMode(requestedMode);
-      setStatus("loading");
-      setLoadError(null);
-      setActionError(null);
-      setSeries(null);
-      repository.current?.dispose?.();
-      repository.current = null;
-      let repo: Repository | null = null;
-      try {
-        repo = createRepository(requestedMode);
-        const results = await Promise.allSettled([
-          repo.getActivities(),
-          repo.load(),
-        ]);
-        if (request !== generation.current) {
-          repo.dispose?.();
-          return;
-        }
-        const [catalogResult, dataResult] = results;
-        if (
-          catalogResult.status === "rejected" ||
-          (catalogResult.status === "fulfilled" && !catalogResult.value.length)
-        )
-          throw new Error("catalog");
-        if (dataResult.status === "rejected") throw new Error("user-data");
-        if (persist) await AsyncStorage.setItem(MODE_KEY, requestedMode);
-        repository.current = repo;
-        setActivities(catalogResult.value);
-        updateData(() => dataResult.value);
-        setStatus("ready");
-      } catch (error) {
-        repo?.dispose?.();
-        if (request !== generation.current) return;
-        const problem = error instanceof Error ? error.message : "";
-        setLoadError(
-          requestedMode === "api"
-            ? "Не удалось подключиться и загрузить данные. Проверь интернет и настройки подключения, затем повтори попытку. Можно отдельно открыть демонстрационный режим."
-            : problem === "catalog"
-              ? "Не удалось загрузить каталог занятий. Попробуй ещё раз."
-              : "Не удалось загрузить сохранённые интересы, избранное или историю. Повтори попытку. Данные не были удалены.",
-        );
-        setStatus("error");
+  const loadData = useCallback(async () => {
+    const request = ++generation.current;
+    setStatus("loading");
+    setLoadError(null);
+    setActionError(null);
+    setSeries(null);
+    repository.current?.dispose?.();
+    repository.current = null;
+    let repo: Repository | null = null;
+    try {
+      repo = createRepository();
+      const results = await Promise.allSettled([
+        repo.getActivities(),
+        repo.load(),
+      ]);
+      if (request !== generation.current) {
+        repo.dispose?.();
+        return;
       }
-    },
-    [updateData],
-  );
+      const [catalogResult, dataResult] = results;
+      if (
+        catalogResult.status === "rejected" ||
+        (catalogResult.status === "fulfilled" && !catalogResult.value.length)
+      )
+        throw new Error("catalog");
+      if (dataResult.status === "rejected") throw new Error("user-data");
+      repository.current = repo;
+      setActivities(catalogResult.value);
+      updateData(() => dataResult.value);
+      setStatus("ready");
+    } catch {
+      repo?.dispose?.();
+      if (request !== generation.current) return;
+      setLoadError(
+        "Не удалось подключиться к серверу. Проверь соединение и повтори попытку.",
+      );
+      setStatus("error");
+    }
+  }, [updateData]);
 
   useEffect(() => {
     const lifecycleGeneration = generation;
     let cancelled = false;
-    void AsyncStorage.getItem(MODE_KEY)
-      .then((savedMode) => {
-        if (!cancelled)
-          void loadMode(
-            savedMode === "demo" || !hasBackendConfiguration
-              ? "demo"
-              : "api",
-          );
-      })
-      .catch(() => {
-        if (!cancelled) {
-          setLoadError(
-            "Не удалось прочитать настройки приложения. Повтори попытку.",
-          );
-          setStatus("error");
-        }
-      });
+    void Promise.resolve().then(() => {
+      if (!cancelled) void loadData();
+    });
     return () => {
       cancelled = true;
       lifecycleGeneration.current++;
       repository.current?.dispose?.();
     };
-  }, [loadMode]);
+  }, [loadData]);
 
   async function perform(
     work: (repo: Repository) => Promise<void>,
@@ -277,15 +245,13 @@ export function AppProvider({ children }: { children: ReactNode }) {
     <AppContext.Provider
       value={{
         status,
-        mode,
         loadError,
         actionError,
         busy,
         data,
         activities,
         series,
-        reload: () => loadMode(mode),
-        switchMode: (requested) => loadMode(requested, true),
+        reload: loadData,
         dismissError: () => setActionError(null),
         saveInterests,
         setFavorite,
