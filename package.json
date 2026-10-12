@@ -1,0 +1,65 @@
+{
+  "name": "whatnext",
+  "version": "1.0.0",
+  "private": true,
+  "overrides": {
+    "decode-uri-component": "^0.5.0"
+  },
+  "main": "expo-router/entry",
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint . --max-warnings=0",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:e2e": "node scripts/check-demo-ui.mjs",
+    "backend:bootstrap": "node scripts/backend.mjs bootstrap",
+    "backend:start": "node scripts/backend.mjs start",
+    "backend:test": "node scripts/backend.mjs test",
+    "backend:lint": "node scripts/backend.mjs lint",
+    "test:remote-ui": "node scripts/check-remote-ui.mjs",
+    "assets:generate": "node scripts/generate-assets.mjs",
+    "seed:generate": "tsx scripts/generate-catalog.ts",
+    "seed:check": "tsx scripts/generate-catalog.ts --check",
+    "export:web": "expo export --platform web --clear",
+    "export:native": "expo export --platform android --platform ios --clear --output-dir .tools/native-export",
+    "check": "npm run typecheck && npm run lint && npm run test && npm run seed:check"
+  },
+  "dependencies": {
+    "@expo-google-fonts/manrope": "^0.4.2",
+    "@expo/vector-icons": "^15.0.2",
+    "@react-native-async-storage/async-storage": "2.2.0",
+    "expo": "~57.0.27",
+    "expo-constants": "~57.0.21",
+    "expo-crypto": "~57.0.3",
+    "expo-font": "~57.0.4",
+    "expo-linking": "~57.0.12",
+    "expo-router": "~57.0.25",
+    "expo-splash-screen": "~57.0.9",
+    "expo-status-bar": "~57.0.1",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "react-native": "0.86.3",
+    "react-native-reanimated": "4.5.1",
+    "react-native-safe-area-context": "~5.7.0",
+    "react-native-screens": "~4.26.0",
+    "react-native-web": "^0.21.2",
+    "react-native-worklets": "0.10.1"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.64.0",
+    "@types/node": "^26.6.4",
+    "@types/react": "~19.2.4",
+    "eslint": "^9.39.5",
+    "eslint-config-expo": "^57.0.2",
+    "tsx": "^4.23.15",
+    "typescript": "^6.0.3",
+    "vitest": "^5.0.3"
+  }
+}

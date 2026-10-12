@@ -1,0 +1,28 @@
+services:
+  db:
+    image: postgres:18
+    environment:
+      POSTGRES_DB: whatnext
+      POSTGRES_USER: whatnext
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-whatnext}
+    ports:
+      - "127.0.0.1:5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U whatnext -d whatnext"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+  api:
+    build: ./backend
+    environment:
+      DATABASE_URL: postgresql+psycopg://whatnext:${POSTGRES_PASSWORD:-whatnext}@db:5432/whatnext
+      CORS_ORIGINS: '["http://localhost:8081","http://127.0.0.1:8081","http://localhost:4174","http://127.0.0.1:4174"]'
+    ports:
+      - "8000:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+volumes:
+  postgres_data:

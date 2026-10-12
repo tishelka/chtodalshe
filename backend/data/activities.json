@@ -1,0 +1,1624 @@
+[
+  {
+    "id": "10000000-0000-4000-8000-000000000001",
+    "title": "Короткий фильм, большое впечатление",
+    "description": "Посмотри короткометражку и дай себе пару минут обдумать финал.",
+    "category": "movies",
+    "locations": [
+      "home"
+    ],
+    "minParticipants": 1,
+    "maxParticipants": 10,
+    "durationMinutes": 20,
+    "estimatedCostPerPerson": 0,
+    "moods": [
+      "calm"
+    ],
+    "tags": [
+      "коротко",
+      "кино"
+    ],
+    "preparation": "Выбери фильм из легально доступной бесплатной подборки.",
+    "isActive": true
+  },
+  {
+    "id": "10000000-0000-4000-8000-000000000002",
+    "title": "Домашний киновечер",
+    "description": "Приглуши свет, приготовь перекус и включи фильм, до которого давно не доходили руки.",
+    "category": "movies",
+    "locations": [
+      "home"
+    ],
+    "minParticipants": 1,
+    "maxParticipants": 10,
+    "durationMinutes": 120,
+    "estimatedCostPerPerson": 150,
+    "moods": [
+      "calm",
+      "social"
+    ],
+    "tags": [
+      "уют",
+      "кино"
+    ],
+    "preparation": "Заранее выбери фильм на доступном тебе сервисе.",
+    "isActive": true
+  },
+  {
+    "id": "10000000-0000-4000-8000-000000000003",
+    "title": "Одна серия нового сериала",
+    "description": "Дай шанс новому сериалу: одной серии хватит, чтобы понять, хочется ли продолжения.",
+    "category": "movies",
+    "locations": [
+      "home"
+    ],
+    "minParticipants": 1,
+    "maxParticipants": 10,
+    "durationMinutes": 45,
+    "estimatedCostPerPerson": 0,
+    "moods": [
+      "calm"
+    ],
+    "tags": [
+      "сериал",
+      "коротко"
+    ],
+    "preparation": "Открой сервис, который уже доступен, или бесплатный легальный выпуск.",
+    "isActive": true
+  },
+  {
+    "id": "10000000-0000-4000-8000-000000000004",
+    "title": "Обсудить фильм с друзьями",
+    "description": "Выберите фильм, который все уже видели, и сравните любимые сцены и трактовки.",
+    "category": "movies",
+    "locations": [
+      "home",
+      "venue"
+    ],
+    "minParticipants": 2,
+    "maxParticipants": 10,
+    "durationMinutes": 30,
+    "estimatedCostPerPerson": 0,
+    "moods": [
+      "social",
+      "calm"
+    ],
+    "tags": [
+      "обсуждение",
+      "компания"
+    ],
+    "preparation": "Приготовь один вопрос о фильме, на который нет очевидного ответа.",
+    "isActive": true
+  },
+  {
+    "id": "10000000-0000-4000-8000-000000000005",
+    "title": "Вечер документального кино",
+    "description": "Узнай что-то новое о природе, искусстве или необычной профессии.",
+    "category": "movies",
+    "locations": [
+      "home"
+    ],
+    "minParticipants": 1,
+    "maxParticipants": 10,
+    "durationMinutes": 60,
+    "estimatedCostPerPerson": 0,
+    "moods": [
+      "calm"
+    ],
+    "tags": [
+      "познание",
+      "кино"
+    ],
+    "preparation": "Найди бесплатный документальный фильм из открытого легального каталога.",
+    "isActive": true
+  },
+  {
+    "id": "10000000-0000-4000-8000-000000000006",
+    "title": "Сходить в кино",
+    "description": "Посмотри фильм на большом экране и немного смени обстановку.",
+    "category": "movies",
+    "locations": [
+      "venue"
+    ],
+    "minParticipants": 1,
+    "maxParticipants": 10,
+    "durationMinutes": 150,
+    "estimatedCostPerPerson": 700,
+    "moods": [
+      "calm",
+      "social"
+    ],
+    "tags": [
+      "выход",
+      "кино"
+    ],
+    "preparation": "Проверь расписание и реальную стоимость билета. Учти время на дорогу.",
+    "isActive": true
+  },
+  {
+    "id": "10000000-0000-4000-8000-000000000007",
+    "title": "Марафон любимой трилогии",
+    "description": "Вернись в знакомую вселенную и устрой длинный вечер с перерывами.",
+    "category": "movies",
+    "locations": [
+      "home"
+    ],
+    "minParticipants": 1,
+    "maxParticipants": 10,
+    "durationMinutes": 360,
+    "estimatedCostPerPerson": 250,
+    "moods": [
+      "calm",
+      "social"
+    ],
+    "tags": [
+      "уют",
+      "марафон"
+    ],
+    "preparation": "Подготовь три фильма, воду и перекусы. Делай паузы между частями.",
+    "isActive": true
+  },
+  {
+    "id": "10000000-0000-4000-8000-000000000008",
+    "title": "Один забег в любимой игре",
+    "description": "Пройди короткую игровую сессию и попробуй другой стиль игры.",
+    "category": "video_games",
+    "locations": [
+      "home"
+    ],
+    "minParticipants": 1,
+    "maxParticipants": 1,
+    "durationMinutes": 25,
+    "estimatedCostPerPerson": 0,
+    "moods": [
+      "active"
+    ],
+    "tags": [
+      "коротко",
+      "челлендж"
+    ],
+    "preparation": "Понадобится уже установленная игра. Поставь таймер.",
+    "isActive": true
+  },
+  {
+    "id": "10000000-0000-4000-8000-000000000009",
+    "title": "Кооперативная миссия",
+    "description": "Соберитесь в команду и пройдите уровень, где важна взаимопомощь.",
+    "category": "video_games",
+    "locations": [
+      "home"
+    ],
+    "minParticipants": 2,
+    "maxParticipants": 4,
+    "durationMinutes": 60,
+    "estimatedCostPerPerson": 0,
+    "moods": [
+      "social",
+      "active"
+    ],
+    "tags": [
+      "команда",
+      "кооператив"
+    ],
+    "preparation": "Договоритесь об игре, которая уже есть у всех участников.",
+    "isActive": true
+  },
+  {
+    "id": "10000000-0000-4000-8000-000000000010",
+    "title": "Исследовать игровой мир",
+    "description": "Прогуляйся по виртуальным локациям без спешки и основных заданий.",
+    "category": "video_games",
+    "locations": [
+      "home"
+    ],
+    "minParticipants": 1,
+    "maxParticipants": 1,
+    "durationMinutes": 45,
+    "estimatedCostPerPerson": 0,
+    "moods": [
+      "calm"
+    ],
+    "tags": [
+      "исследование",
+      "уют"
+    ],
+    "preparation": "Выбери установленную игру с открытым миром.",
+    "isActive": true
+  },
+  {
+    "id": "10000000-0000-4000-8000-000000000011",
+    "title": "Турнир на одном экране",
+    "description": "Устройте дружеские короткие матчи с передачей контроллера.",
+    "category": "video_games",
+    "locations": [
+      "home"
+    ],
+    "minParticipants": 2,
+    "maxParticipants": 8,
+    "durationMinutes": 90,
+    "estimatedCostPerPerson": 0,
+    "moods": [
+      "social",
+      "active"
+    ],
+    "tags": [
+      "турнир",
+      "компания"
+    ],
+    "preparation": "Проверь контроллеры и доступный режим локальной игры.",
+    "isActive": true
+  },
+  {
+    "id": "10000000-0000-4000-8000-000000000012",
+    "title": "Игровая головоломка",
+    "description": "Реши несколько необычных задач и потренируй внимательность.",
+    "category": "video_games",
+    "locations": [
+      "home"
+    ],
+    "minParticipants": 1,
+    "maxParticipants": 2,
+    "durationMinutes": 20,
+    "estimatedCostPerPerson": 0,
+    "moods": [
+      "calm"
+    ],
+    "tags": [
+      "логика",
+      "коротко"
+    ],
+    "preparation": "Подойдёт бесплатная головоломка или игра из твоей библиотеки.",
+    "isActive": true
+  },
+  {
+    "id": "10000000-0000-4000-8000-000000000013",
+    "title": "Построить уютный виртуальный дом",
+    "description": "Создай маленькое пространство в строительной игре и продумай детали.",
+    "category": "video_games",
+    "locations": [
+      "home"
+    ],
+    "minParticipants": 1,
+    "maxParticipants": 4,
+    "durationMinutes": 60,
+    "estimatedCostPerPerson": 0,
+    "moods": [
+      "creative",
+      "calm"
+    ],
+    "tags": [
+      "строительство",
+      "уют"
+    ],
+    "preparation": "Открой творческий режим в игре, которая уже у тебя есть.",
+    "isActive": true
+  },
+  {
+    "id": "10000000-0000-4000-8000-000000000014",
+    "title": "Вечер ретроигр",
+    "description": "Вспомните старую любимую игру и попробуйте пройти сложный уровень.",
+    "category": "video_games",
+    "locations": [
+      "home"
+    ],
+    "minParticipants": 1,
+    "maxParticipants": 6,
+    "durationMinutes": 90,
+    "estimatedCostPerPerson": 0,
+    "moods": [
+      "social",
+      "calm"
+    ],
+    "tags": [
+      "ностальгия",
+      "компания"
+    ],
+    "preparation": "Используй легально приобретённую игру или бесплатный аналог.",
+    "isActive": true
+  },
+  {
+    "id": "10000000-0000-4000-8000-000000000015",
+    "title": "Вечер настольных игр",
+    "description": "Соберите друзей, выберите знакомую игру и проведите вечер за одним столом.",
+    "category": "board_games",
+    "locations": [
+      "home",
+      "venue"
+    ],
+    "minParticipants": 2,
+    "maxParticipants": 6,
+    "durationMinutes": 90,
+    "estimatedCostPerPerson": 0,
+    "moods": [
+      "social",
+      "calm"
+    ],
+    "tags": [
+      "компания",
+      "уют"
+    ],
+    "preparation": "Понадобится имеющаяся настольная игра и свободный стол.",
+    "isActive": true
+  },
+  {
+    "id": "10000000-0000-4000-8000-000000000016",
+    "title": "Шахматный поединок",
+    "description": "Сыграйте спокойную партию, а потом вместе разберите интересный момент.",
+    "category": "board_games",
+    "locations": [
+      "home",
+      "outdoors",
+      "venue"
+    ],
+    "minParticipants": 2,
+    "maxParticipants": 2,
+    "durationMinutes": 40,
+    "estimatedCostPerPerson": 0,
+    "moods": [
+      "calm"
+    ],
+    "tags": [
+      "логика",
+      "дуэль"
+    ],
+    "preparation": "Возьмите шахматы или откройте бесплатную виртуальную доску.",
+    "isActive": true
+  },
+  {
+    "id": "10000000-0000-4000-8000-000000000017",
+    "title": "Крокодил без реквизита",
+    "description": "Показывайте слова жестами и старайтесь угадать их всей компанией.",
+    "category": "board_games",
+    "locations": [
+      "home",
+      "outdoors"
+    ],
+    "minParticipants": 3,
+    "maxParticipants": 10,
+    "durationMinutes": 25,
+    "estimatedCostPerPerson": 0,
+    "moods": [
+      "social",
+      "active",
+      "creative"
+    ],
+    "tags": [
+      "без подготовки",
+      "компания"
+    ],
+    "preparation": "Разделитесь на команды и договоритесь о времени на одно слово.",
+    "isActive": true
+  },
+  {
+    "id": "10000000-0000-4000-8000-000000000018",
+    "title": "Карточная партия",
+    "description": "Сыграйте несколько раундов простой карточной игры со знакомыми правилами.",
+    "category": "board_games",
+    "locations": [
+      "home",
+      "outdoors"
+    ],
+    "minParticipants": 2,
+    "maxParticipants": 6,
+    "durationMinutes": 30,
+    "estimatedCostPerPerson": 0,
+    "moods": [
+      "social",
+      "calm"
+    ],
+    "tags": [
+      "карты",
+      "коротко"
+    ],
+    "preparation": "Возьмите обычную колоду карт и заранее договоритесь о правилах.",
+    "isActive": true
+  },
+  {
+    "id": "10000000-0000-4000-8000-000000000019",
+    "title": "Собрать небольшой пазл",
+    "description": "Найдите место для каждого фрагмента и понаблюдайте, как возникает картинка.",
+    "category": "board_games",
+    "locations": [
+      "home"
+    ],
+    "minParticipants": 1,
+    "maxParticipants": 4,
+    "durationMinutes": 60,
+    "estimatedCostPerPerson": 0,
+    "moods": [
+      "calm"
+    ],
+    "tags": [
+      "уют",
+      "внимательность"
+    ],
+    "preparation": "Используйте пазл, который уже есть дома.",
+    "isActive": true
+  },
+  {
+    "id": "10000000-0000-4000-8000-000000000020",
+    "title": "Бумажный морской бой",
+    "description": "Нарисуйте поля и устройте дуэль, для которой нужны только листы и ручки.",
+    "category": "board_games",
+    "locations": [
+      "home",
+      "outdoors",
+      "venue"
+    ],
+    "minParticipants": 2,
+    "maxParticipants": 2,
+    "durationMinutes": 20,
+    "estimatedCostPerPerson": 0,
+    "moods": [
+      "calm",
+      "social"
+    ],
+    "tags": [
+      "бумага",
+      "коротко"
+    ],
+    "preparation": "Приготовьте два листа в клетку и две ручки.",
+    "isActive": true
+  },
+  {
+    "id": "10000000-0000-4000-8000-000000000021",
+    "title": "Своя игра на общие темы",
+    "description": "Придумайте вопросы о музыке, фильмах и ваших общих воспоминаниях.",
+    "category": "board_games",
+    "locations": [
+      "home"
+    ],
+    "minParticipants": 3,
+    "maxParticipants": 10,
+    "durationMinutes": 60,
+    "estimatedCostPerPerson": 0,
+    "moods": [
+      "social",
+      "creative"
+    ],
+    "tags": [
+      "викторина",
+      "компания"
+    ],
+    "preparation": "Каждый участник готовит по пять вопросов.",
+    "isActive": true
+  },
+  {
+    "id": "10000000-0000-4000-8000-000000000022",
+    "title": "Прогулка без маршрута",
+    "description": "Сверни на знакомой улице в новую сторону и замечай маленькие детали вокруг.",
+    "category": "walks",
+    "locations": [
+      "outdoors"
+    ],
+    "minParticipants": 1,
+    "maxParticipants": 10,
+    "durationMinutes": 25,
+    "estimatedCostPerPerson": 0,
+    "moods": [
+      "calm",
+      "active"
+    ],
+    "tags": [
+      "свежий воздух",
+      "без подготовки"
+    ],
+    "preparation": "Оденься по погоде, возьми воду и выбери безопасные улицы.",
+    "isActive": true
+  },
+  {
+    "id": "10000000-0000-4000-8000-000000000023",
+    "title": "Фотопрогулка",
+    "description": "Найди красивый свет, необычные тени и пять сюжетов для небольшой фотосерии.",
+    "category": "walks",
+    "locations": [
+      "outdoors"
+    ],
+    "minParticipants": 1,
+    "maxParticipants": 6,
+    "durationMinutes": 60,
+    "estimatedCostPerPerson": 0,
+    "moods": [
+      "creative",
+      "active"
+    ],
+    "tags": [
+      "фото",
+      "свежий воздух"
+    ],
+    "preparation": "Заряди телефон и выбери тему: отражения, цвет или геометрия.",
+    "isActive": true
+  },
+  {
+    "id": "10000000-0000-4000-8000-000000000024",
+    "title": "Прогулка в парке",
+    "description": "Погуляй среди деревьев, посиди на скамейке и немного замедлись.",
+    "category": "walks",
+    "locations": [
+      "outdoors"
+    ],
+    "minParticipants": 1,
+    "maxParticipants": 10,
+    "durationMinutes": 45,
+    "estimatedCostPerPerson": 0,
+    "moods": [
+      "calm",
+      "social"
+    ],
+    "tags": [
+      "природа",
+      "свежий воздух"
+    ],
+    "preparation": "Проверь погоду и доступность ближайшего парка.",
+    "isActive": true
+  },
+  {
+    "id": "10000000-0000-4000-8000-000000000025",
+    "title": "Поймать закат",
+    "description": "Выбери открытое место и понаблюдай, как меняется цвет неба.",
+    "category": "walks",
+    "locations": [
+      "outdoors"
+    ],
+    "minParticipants": 1,
+    "maxParticipants": 10,
+    "durationMinutes": 30,
+    "estimatedCostPerPerson": 0,
+    "moods": [
+      "calm",
+      "creative"
+    ],
+    "tags": [
+      "природа",
+      "фото"
+    ],
+    "preparation": "Уточни время заката и выбирай безопасное общедоступное место.",
+    "isActive": true
+  },
+  {
+    "id": "10000000-0000-4000-8000-000000000026",
+    "title": "Городская прогулка с историей",
+    "description": "Найди три интересных здания и узнай, как менялся этот район.",
+    "category": "walks",
+    "locations": [
+      "outdoors"
+    ],
+    "minParticipants": 1,
+    "maxParticipants": 8,
+    "durationMinutes": 90,
+    "estimatedCostPerPerson": 0,
+    "moods": [
+      "calm",
+      "active"
+    ],
+    "tags": [
+      "познание",
+      "город"
+    ],
+    "preparation": "Заранее сохрани исторические заметки, чтобы читать их без сети.",
+    "isActive": true
+  },
+  {
+    "id": "10000000-0000-4000-8000-000000000027",
+    "title": "Пикник на свежем воздухе",
+    "description": "Возьмите простой перекус и устройте неспешную встречу на природе.",
+    "category": "walks",
+    "locations": [
+      "outdoors"
+    ],
+    "minParticipants": 1,
+    "maxParticipants": 10,
+    "durationMinutes": 90,
+    "estimatedCostPerPerson": 350,
+    "moods": [
+      "calm",
+      "social"
+    ],
+    "tags": [
+      "природа",
+      "компания"
+    ],
+    "preparation": "Возьмите плед, воду, еду и пакет для мусора. Проверьте погоду.",
+    "isActive": true
+  },
+  {
+    "id": "10000000-0000-4000-8000-000000000028",
+    "title": "Длинная прогулка по знакомым тропам",
+    "description": "Пройди безопасный пеший маршрут и сделай несколько остановок для отдыха.",
+    "category": "walks",
+    "locations": [
+      "outdoors"
+    ],
+    "minParticipants": 1,
+    "maxParticipants": 8,
+    "durationMinutes": 180,
+    "estimatedCostPerPerson": 0,
+    "moods": [
+      "active",
+      "calm"
+    ],
+    "tags": [
+      "природа",
+      "движение"
+    ],
+    "preparation": "Выбери знакомый маршрут по силам, возьми воду и удобную обувь.",
+    "isActive": true
+  },
+  {
+    "id": "10000000-0000-4000-8000-000000000029",
+    "title": "Мягкая разминка дома",
+    "description": "Разомни плечи, спину и ноги в комфортном темпе без сложных упражнений.",
+    "category": "sport",
+    "locations": [
+      "home"
+    ],
+    "minParticipants": 1,
+    "maxParticipants": 10,
+    "durationMinutes": 15,
+    "estimatedCostPerPerson": 0,
+    "moods": [
+      "active",
+      "calm"
+    ],
+    "tags": [
+      "коротко",
+      "движение"
+    ],
+    "preparation": "Освободи немного места. Выбирай движения по своему самочувствию.",
+    "isActive": true
+  },
+  {
+    "id": "10000000-0000-4000-8000-000000000030",
+    "title": "Домашняя тренировка",
+    "description": "Выполни короткий комплекс привычных упражнений с весом собственного тела.",
+    "category": "sport",
+    "locations": [
+      "home"
+    ],
+    "minParticipants": 1,
+    "maxParticipants": 6,
+    "durationMinutes": 30,
+    "estimatedCostPerPerson": 0,
+    "moods": [
+      "active"
+    ],
+    "tags": [
+      "движение",
+      "без инвентаря"
+    ],
+    "preparation": "Подготовь воду и удобную одежду. Не выполняй движения через боль.",
+    "isActive": true
+  },
+  {
+    "id": "10000000-0000-4000-8000-000000000031",
+    "title": "Танцевальный перерыв",
+    "description": "Включи любимые песни и просто двигайся так, как хочется.",
+    "category": "sport",
+    "locations": [
+      "home"
+    ],
+    "minParticipants": 1,
+    "maxParticipants": 10,
+    "durationMinutes": 20,
+    "estimatedCostPerPerson": 0,
+    "moods": [
+      "active",
+      "creative"
+    ],
+    "tags": [
+      "музыка",
+      "коротко"
+    ],
+    "preparation": "Составь плейлист из пяти песен и освободи место.",
+    "isActive": true
+  },
+  {
+    "id": "10000000-0000-4000-8000-000000000032",
+    "title": "Лёгкая пробежка",
+    "description": "Пробеги знакомый маршрут в разговорном темпе с паузами при необходимости.",
+    "category": "sport",
+    "locations": [
+      "outdoors"
+    ],
+    "minParticipants": 1,
+    "maxParticipants": 6,
+    "durationMinutes": 30,
+    "estimatedCostPerPerson": 0,
+    "moods": [
+      "active"
+    ],
+    "tags": [
+      "движение",
+      "свежий воздух"
+    ],
+    "preparation": "Подойдёт, если бег тебе привычен. Начни с разминки и проверь погоду.",
+    "isActive": true
+  },
+  {
+    "id": "10000000-0000-4000-8000-000000000033",
+    "title": "Бадминтон с друзьями",
+    "description": "Найдите свободное пространство и сыграйте несколько дружеских партий.",
+    "category": "sport",
+    "locations": [
+      "outdoors"
+    ],
+    "minParticipants": 2,
+    "maxParticipants": 4,
+    "durationMinutes": 45,
+    "estimatedCostPerPerson": 0,
+    "moods": [
+      "active",
+      "social"
+    ],
+    "tags": [
+      "движение",
+      "компания"
+    ],
+    "preparation": "Возьмите имеющиеся ракетки и волан. Лучше выбрать день без ветра.",
+    "isActive": true
+  },
+  {
+    "id": "10000000-0000-4000-8000-000000000034",
+    "title": "Час в бассейне",
+    "description": "Поплавай в комфортном темпе и отдохни от привычных занятий.",
+    "category": "sport",
+    "locations": [
+      "venue"
+    ],
+    "minParticipants": 1,
+    "maxParticipants": 6,
+    "durationMinutes": 90,
+    "estimatedCostPerPerson": 900,
+    "moods": [
+      "active",
+      "calm"
+    ],
+    "tags": [
+      "вода",
+      "движение"
+    ],
+    "preparation": "Проверь часы работы, цену, правила посещения и необходимые документы.",
+    "isActive": true
+  },
+  {
+    "id": "10000000-0000-4000-8000-000000000035",
+    "title": "Велопрогулка",
+    "description": "Прокатись по спокойному знакомому маршруту с короткой остановкой.",
+    "category": "sport",
+    "locations": [
+      "outdoors"
+    ],
+    "minParticipants": 1,
+    "maxParticipants": 6,
+    "durationMinutes": 60,
+    "estimatedCostPerPerson": 0,
+    "moods": [
+      "active"
+    ],
+    "tags": [
+      "движение",
+      "свежий воздух"
+    ],
+    "preparation": "Нужен свой исправный велосипед и защитное снаряжение.",
+    "isActive": true
+  },
+  {
+    "id": "10000000-0000-4000-8000-000000000036",
+    "title": "Скетч того, что рядом",
+    "description": "Нарисуй чашку, растение или вид из окна. Результат может быть совсем простым.",
+    "category": "creativity",
+    "locations": [
+      "home",
+      "outdoors"
+    ],
+    "minParticipants": 1,
+    "maxParticipants": 10,
+    "durationMinutes": 25,
+    "estimatedCostPerPerson": 0,
+    "moods": [
+      "creative",
+      "calm"
+    ],
+    "tags": [
+      "рисование",
+      "коротко"
+    ],
+    "preparation": "Достаточно бумаги и карандаша. Начни с крупных форм.",
+    "isActive": true
+  },
+  {
+    "id": "10000000-0000-4000-8000-000000000037",
+    "title": "Коллаж настроения",
+    "description": "Собери цвета, формы и картинки, которые описывают твой сегодняшний день.",
+    "category": "creativity",
+    "locations": [
+      "home"
+    ],
+    "minParticipants": 1,
+    "maxParticipants": 6,
+    "durationMinutes": 45,
+    "estimatedCostPerPerson": 0,
+    "moods": [
+      "creative",
+      "calm"
+    ],
+    "tags": [
+      "бумага",
+      "уют"
+    ],
+    "preparation": "Используй старые журналы и клей или бесплатный редактор на телефоне.",
+    "isActive": true
+  },
+  {
+    "id": "10000000-0000-4000-8000-000000000038",
+    "title": "Бумажное оригами",
+    "description": "Сложи из листа журавлика, лодочку или простую геометрическую фигуру.",
+    "category": "creativity",
+    "locations": [
+      "home",
+      "venue"
+    ],
+    "minParticipants": 1,
+    "maxParticipants": 10,
+    "durationMinutes": 20,
+    "estimatedCostPerPerson": 0,
+    "moods": [
+      "creative",
+      "calm"
+    ],
+    "tags": [
+      "бумага",
+      "коротко"
+    ],
+    "preparation": "Найди понятную схему и приготовь несколько листов бумаги.",
+    "isActive": true
+  },
+  {
+    "id": "10000000-0000-4000-8000-000000000039",
+    "title": "Записать маленькую историю",
+    "description": "Придумай героя, неожиданную встречу и финал — пусть получится всего одна страница.",
+    "category": "creativity",
+    "locations": [
+      "home",
+      "outdoors"
+    ],
+    "minParticipants": 1,
+    "maxParticipants": 10,
+    "durationMinutes": 30,
+    "estimatedCostPerPerson": 0,
+    "moods": [
+      "creative",
+      "calm"
+    ],
+    "tags": [
+      "письмо",
+      "воображение"
+    ],
+    "preparation": "Открой заметки или возьми блокнот. Не редактируй первый черновик.",
+    "isActive": true
+  },
+  {
+    "id": "10000000-0000-4000-8000-000000000040",
+    "title": "Снять короткий ролик",
+    "description": "Расскажи небольшую историю с помощью трёх кадров и звуков вокруг.",
+    "category": "creativity",
+    "locations": [
+      "home",
+      "outdoors"
+    ],
+    "minParticipants": 1,
+    "maxParticipants": 6,
+    "durationMinutes": 60,
+    "estimatedCostPerPerson": 0,
+    "moods": [
+      "creative",
+      "active"
+    ],
+    "tags": [
+      "видео",
+      "команда"
+    ],
+    "preparation": "Заряди телефон. Согласуй съёмку людей, которые попадут в кадр.",
+    "isActive": true
+  },
+  {
+    "id": "10000000-0000-4000-8000-000000000041",
+    "title": "Лепка из глины",
+    "description": "Сделай небольшую миску или фигурку и почувствуй фактуру материала.",
+    "category": "creativity",
+    "locations": [
+      "home"
+    ],
+    "minParticipants": 1,
+    "maxParticipants": 6,
+    "durationMinutes": 90,
+    "estimatedCostPerPerson": 450,
+    "moods": [
+      "creative",
+      "calm"
+    ],
+    "tags": [
+      "рукоделие",
+      "уют"
+    ],
+    "preparation": "Подготовь самозатвердевающую глину и защиту для стола.",
+    "isActive": true
+  },
+  {
+    "id": "10000000-0000-4000-8000-000000000042",
+    "title": "Творческий мастер-класс",
+    "description": "Попробуй новую технику с преподавателем и унеси с собой собственную работу.",
+    "category": "creativity",
+    "locations": [
+      "venue"
+    ],
+    "minParticipants": 1,
+    "maxParticipants": 8,
+    "durationMinutes": 120,
+    "estimatedCostPerPerson": 1400,
+    "moods": [
+      "creative",
+      "social"
+    ],
+    "tags": [
+      "познание",
+      "выход"
+    ],
+    "preparation": "Выбери доступный мастер-класс, уточни стоимость и включённые материалы.",
+    "isActive": true
+  },
+  {
+    "id": "10000000-0000-4000-8000-000000000043",
+    "title": "Необычный бутерброд",
+    "description": "Сочетай знакомые ингредиенты по-новому и устрой небольшой гастрономический эксперимент.",
+    "category": "cooking",
+    "locations": [
+      "home"
+    ],
+    "minParticipants": 1,
+    "maxParticipants": 6,
+    "durationMinutes": 15,
+    "estimatedCostPerPerson": 100,
+    "moods": [
+      "creative",
+      "calm"
+    ],
+    "tags": [
+      "еда",
+      "коротко"
+    ],
+    "preparation": "Проверь продукты в холодильнике и учитывай пищевые ограничения.",
+    "isActive": true
+  },
+  {
+    "id": "10000000-0000-4000-8000-000000000044",
+    "title": "Приготовить новое блюдо",
+    "description": "Выбери простой рецепт, который давно хотелось попробовать, и приготовь его без спешки.",
+    "category": "cooking",
+    "locations": [
+      "home"
+    ],
+    "minParticipants": 1,
+    "maxParticipants": 6,
+    "durationMinutes": 60,
+    "estimatedCostPerPerson": 350,
+    "moods": [
+      "creative",
+      "calm"
+    ],
+    "tags": [
+      "еда",
+      "познание"
+    ],
+    "preparation": "Прочитай рецепт целиком и заранее подготовь ингредиенты.",
+    "isActive": true
+  },
+  {
+    "id": "10000000-0000-4000-8000-000000000045",
+    "title": "Совместная домашняя пицца",
+    "description": "Разделите задачи и придумайте каждому свой вариант начинки.",
+    "category": "cooking",
+    "locations": [
+      "home"
+    ],
+    "minParticipants": 2,
+    "maxParticipants": 8,
+    "durationMinutes": 90,
+    "estimatedCostPerPerson": 400,
+    "moods": [
+      "creative",
+      "social"
+    ],
+    "tags": [
+      "еда",
+      "компания"
+    ],
+    "preparation": "Приготовьте тесто или готовую основу, начинку и разогрейте духовку.",
+    "isActive": true
+  },
+  {
+    "id": "10000000-0000-4000-8000-000000000046",
+    "title": "Испечь печенье",
+    "description": "Наполни дом ароматом выпечки и приготовь маленький запас к чаю.",
+    "category": "cooking",
+    "locations": [
+      "home"
+    ],
+    "minParticipants": 1,
+    "maxParticipants": 6,
+    "durationMinutes": 60,
+    "estimatedCostPerPerson": 200,
+    "moods": [
+      "creative",
+      "calm"
+    ],
+    "tags": [
+      "еда",
+      "уют"
+    ],
+    "preparation": "Проверь рецепт, продукты и наличие духовки.",
+    "isActive": true
+  },
+  {
+    "id": "10000000-0000-4000-8000-000000000047",
+    "title": "Чайная дегустация",
+    "description": "Сравни аромат и вкус нескольких сортов чая и выбери фаворита.",
+    "category": "cooking",
+    "locations": [
+      "home"
+    ],
+    "minParticipants": 1,
+    "maxParticipants": 10,
+    "durationMinutes": 30,
+    "estimatedCostPerPerson": 100,
+    "moods": [
+      "calm",
+      "social"
+    ],
+    "tags": [
+      "уют",
+      "вкус"
+    ],
+    "preparation": "Возьми два-три имеющихся сорта чая и небольшие чашки.",
+    "isActive": true
+  },
+  {
+    "id": "10000000-0000-4000-8000-000000000048",
+    "title": "Приготовить домашний лимонад",
+    "description": "Смешай воду, цитрусы и любимые добавки и найди своё сочетание.",
+    "category": "cooking",
+    "locations": [
+      "home"
+    ],
+    "minParticipants": 1,
+    "maxParticipants": 10,
+    "durationMinutes": 20,
+    "estimatedCostPerPerson": 100,
+    "moods": [
+      "creative",
+      "social"
+    ],
+    "tags": [
+      "напитки",
+      "коротко"
+    ],
+    "preparation": "Приготовь лимон, воду и добавки по вкусу, например мяту.",
+    "isActive": true
+  },
+  {
+    "id": "10000000-0000-4000-8000-000000000049",
+    "title": "Кулинарный вечер с друзьями",
+    "description": "Составьте небольшое меню, распределите блюда и вместе накройте стол.",
+    "category": "cooking",
+    "locations": [
+      "home"
+    ],
+    "minParticipants": 3,
+    "maxParticipants": 10,
+    "durationMinutes": 180,
+    "estimatedCostPerPerson": 650,
+    "moods": [
+      "social",
+      "creative"
+    ],
+    "tags": [
+      "еда",
+      "компания"
+    ],
+    "preparation": "Обсудите меню, бюджет и аллергии. Закупите продукты заранее.",
+    "isActive": true
+  },
+  {
+    "id": "10000000-0000-4000-8000-000000000050",
+    "title": "Одна глава для себя",
+    "description": "Устройся поудобнее и прочитай главу книги, которая уже ждёт тебя.",
+    "category": "reading",
+    "locations": [
+      "home",
+      "outdoors",
+      "venue"
+    ],
+    "minParticipants": 1,
+    "maxParticipants": 1,
+    "durationMinutes": 20,
+    "estimatedCostPerPerson": 0,
+    "moods": [
+      "calm"
+    ],
+    "tags": [
+      "уют",
+      "коротко"
+    ],
+    "preparation": "Возьми свою книгу или легально доступную электронную версию.",
+    "isActive": true
+  },
+  {
+    "id": "10000000-0000-4000-8000-000000000051",
+    "title": "Прочитать короткий рассказ",
+    "description": "Познакомься с законченной историей за один небольшой перерыв.",
+    "category": "reading",
+    "locations": [
+      "home",
+      "outdoors"
+    ],
+    "minParticipants": 1,
+    "maxParticipants": 1,
+    "durationMinutes": 30,
+    "estimatedCostPerPerson": 0,
+    "moods": [
+      "calm"
+    ],
+    "tags": [
+      "литература",
+      "коротко"
+    ],
+    "preparation": "Найди рассказ в открытой библиотеке с легальным доступом.",
+    "isActive": true
+  },
+  {
+    "id": "10000000-0000-4000-8000-000000000052",
+    "title": "Час с любимой книгой",
+    "description": "Отключи лишние уведомления и погрузись в чтение без других дел.",
+    "category": "reading",
+    "locations": [
+      "home",
+      "outdoors"
+    ],
+    "minParticipants": 1,
+    "maxParticipants": 1,
+    "durationMinutes": 60,
+    "estimatedCostPerPerson": 0,
+    "moods": [
+      "calm"
+    ],
+    "tags": [
+      "уют",
+      "литература"
+    ],
+    "preparation": "Подготовь книгу, удобное место и хорошее освещение.",
+    "isActive": true
+  },
+  {
+    "id": "10000000-0000-4000-8000-000000000053",
+    "title": "Мини-книжный клуб",
+    "description": "Обсудите прочитанную книгу: какой персонаж запомнился и с чем вы не согласны?",
+    "category": "reading",
+    "locations": [
+      "home",
+      "venue",
+      "outdoors"
+    ],
+    "minParticipants": 2,
+    "maxParticipants": 10,
+    "durationMinutes": 60,
+    "estimatedCostPerPerson": 0,
+    "moods": [
+      "social",
+      "calm"
+    ],
+    "tags": [
+      "обсуждение",
+      "компания"
+    ],
+    "preparation": "Выберите текст, который все уже читали, или короткий общий рассказ.",
+    "isActive": true
+  },
+  {
+    "id": "10000000-0000-4000-8000-000000000054",
+    "title": "Вечер поэзии",
+    "description": "Почитай стихи вслух и найди строку, которая подходит твоему настроению.",
+    "category": "reading",
+    "locations": [
+      "home",
+      "outdoors"
+    ],
+    "minParticipants": 1,
+    "maxParticipants": 10,
+    "durationMinutes": 25,
+    "estimatedCostPerPerson": 0,
+    "moods": [
+      "calm",
+      "creative"
+    ],
+    "tags": [
+      "литература",
+      "голос"
+    ],
+    "preparation": "Подготовь небольшую подборку любимых стихотворений.",
+    "isActive": true
+  },
+  {
+    "id": "10000000-0000-4000-8000-000000000055",
+    "title": "Сходить в библиотеку",
+    "description": "Поброди между полками и открой для себя незнакомого автора.",
+    "category": "reading",
+    "locations": [
+      "venue"
+    ],
+    "minParticipants": 1,
+    "maxParticipants": 4,
+    "durationMinutes": 60,
+    "estimatedCostPerPerson": 0,
+    "moods": [
+      "calm"
+    ],
+    "tags": [
+      "познание",
+      "выход"
+    ],
+    "preparation": "Проверь часы работы и условия посещения общедоступной библиотеки.",
+    "isActive": true
+  },
+  {
+    "id": "10000000-0000-4000-8000-000000000056",
+    "title": "Почитать научно-популярную статью",
+    "description": "Разберись в одном вопросе о мире и запиши три новых факта.",
+    "category": "reading",
+    "locations": [
+      "home",
+      "outdoors"
+    ],
+    "minParticipants": 1,
+    "maxParticipants": 6,
+    "durationMinutes": 25,
+    "estimatedCostPerPerson": 0,
+    "moods": [
+      "calm"
+    ],
+    "tags": [
+      "познание",
+      "коротко"
+    ],
+    "preparation": "Заранее сохрани статью из надёжного бесплатного источника.",
+    "isActive": true
+  },
+  {
+    "id": "10000000-0000-4000-8000-000000000057",
+    "title": "Заглянуть в музей",
+    "description": "Выбери одну экспозицию и рассмотри её внимательно, без попытки увидеть всё.",
+    "category": "culture",
+    "locations": [
+      "venue"
+    ],
+    "minParticipants": 1,
+    "maxParticipants": 10,
+    "durationMinutes": 90,
+    "estimatedCostPerPerson": 600,
+    "moods": [
+      "calm",
+      "creative"
+    ],
+    "tags": [
+      "искусство",
+      "выход"
+    ],
+    "preparation": "Уточни режим работы, реальную цену билета и время на дорогу.",
+    "isActive": true
+  },
+  {
+    "id": "10000000-0000-4000-8000-000000000058",
+    "title": "Посетить бесплатную выставку",
+    "description": "Посмотри работы местных художников или небольшую общественную экспозицию.",
+    "category": "culture",
+    "locations": [
+      "venue"
+    ],
+    "minParticipants": 1,
+    "maxParticipants": 10,
+    "durationMinutes": 60,
+    "estimatedCostPerPerson": 0,
+    "moods": [
+      "creative",
+      "calm"
+    ],
+    "tags": [
+      "искусство",
+      "познание"
+    ],
+    "preparation": "Проверь наличие бесплатной выставки и условия входа в своём городе.",
+    "isActive": true
+  },
+  {
+    "id": "10000000-0000-4000-8000-000000000059",
+    "title": "Виртуальная прогулка по музею",
+    "description": "Рассмотри произведения искусства в бесплатной онлайн-экспозиции.",
+    "category": "culture",
+    "locations": [
+      "home"
+    ],
+    "minParticipants": 1,
+    "maxParticipants": 10,
+    "durationMinutes": 30,
+    "estimatedCostPerPerson": 0,
+    "moods": [
+      "calm",
+      "creative"
+    ],
+    "tags": [
+      "искусство",
+      "онлайн"
+    ],
+    "preparation": "Заранее открой или сохрани доступный виртуальный тур.",
+    "isActive": true
+  },
+  {
+    "id": "10000000-0000-4000-8000-000000000060",
+    "title": "Вечер в театре",
+    "description": "Посмотри спектакль и потом обсуди запомнившиеся сцены.",
+    "category": "culture",
+    "locations": [
+      "venue"
+    ],
+    "minParticipants": 1,
+    "maxParticipants": 10,
+    "durationMinutes": 180,
+    "estimatedCostPerPerson": 1500,
+    "moods": [
+      "calm",
+      "social"
+    ],
+    "tags": [
+      "сцена",
+      "выход"
+    ],
+    "preparation": "Уточни наличие билетов, время спектакля и фактическую цену.",
+    "isActive": true
+  },
+  {
+    "id": "10000000-0000-4000-8000-000000000061",
+    "title": "Послушать открытую лекцию",
+    "description": "Узнай новый взгляд на искусство, историю или науку.",
+    "category": "culture",
+    "locations": [
+      "home",
+      "venue"
+    ],
+    "minParticipants": 1,
+    "maxParticipants": 10,
+    "durationMinutes": 60,
+    "estimatedCostPerPerson": 0,
+    "moods": [
+      "calm"
+    ],
+    "tags": [
+      "познание",
+      "лекция"
+    ],
+    "preparation": "Выбери бесплатную запись или открытое мероприятие, проверь условия входа.",
+    "isActive": true
+  },
+  {
+    "id": "10000000-0000-4000-8000-000000000062",
+    "title": "Концерт камерной музыки",
+    "description": "Послушай живое исполнение и обрати внимание на инструменты и настроение.",
+    "category": "culture",
+    "locations": [
+      "venue"
+    ],
+    "minParticipants": 1,
+    "maxParticipants": 10,
+    "durationMinutes": 120,
+    "estimatedCostPerPerson": 1200,
+    "moods": [
+      "calm",
+      "social"
+    ],
+    "tags": [
+      "музыка",
+      "выход"
+    ],
+    "preparation": "Найди подходящее событие, уточни стоимость и необходимость бронирования.",
+    "isActive": true
+  },
+  {
+    "id": "10000000-0000-4000-8000-000000000063",
+    "title": "Архитектурный скетч на улице",
+    "description": "Выбери интересный фасад и нарисуй его основные линии прямо на прогулке.",
+    "category": "culture",
+    "locations": [
+      "outdoors"
+    ],
+    "minParticipants": 1,
+    "maxParticipants": 6,
+    "durationMinutes": 45,
+    "estimatedCostPerPerson": 0,
+    "moods": [
+      "creative",
+      "calm"
+    ],
+    "tags": [
+      "рисование",
+      "город"
+    ],
+    "preparation": "Возьми блокнот, карандаш и найди безопасное место для остановки.",
+    "isActive": true
+  },
+  {
+    "id": "10000000-0000-4000-8000-000000000064",
+    "title": "Разговор без телефонов",
+    "description": "Отложите экраны и расскажите друг другу о самом интересном за последнее время.",
+    "category": "social",
+    "locations": [
+      "home",
+      "outdoors",
+      "venue"
+    ],
+    "minParticipants": 2,
+    "maxParticipants": 10,
+    "durationMinutes": 25,
+    "estimatedCostPerPerson": 0,
+    "moods": [
+      "social",
+      "calm"
+    ],
+    "tags": [
+      "компания",
+      "без подготовки"
+    ],
+    "preparation": "Выберите комфортное место и уберите уведомления.",
+    "isActive": true
+  },
+  {
+    "id": "10000000-0000-4000-8000-000000000065",
+    "title": "Позвонить старому другу",
+    "description": "Свяжись с человеком, с которым давно не разговаривал, и узнай, как у него дела.",
+    "category": "social",
+    "locations": [
+      "home",
+      "outdoors"
+    ],
+    "minParticipants": 1,
+    "maxParticipants": 1,
+    "durationMinutes": 20,
+    "estimatedCostPerPerson": 0,
+    "moods": [
+      "social",
+      "calm"
+    ],
+    "tags": [
+      "общение",
+      "коротко"
+    ],
+    "preparation": "Договорись об удобном времени. Для звонка нужна связь.",
+    "isActive": true
+  },
+  {
+    "id": "10000000-0000-4000-8000-000000000066",
+    "title": "Обменяться любимой музыкой",
+    "description": "Поставьте по три трека и расскажите, почему они для вас особенные.",
+    "category": "social",
+    "locations": [
+      "home",
+      "outdoors"
+    ],
+    "minParticipants": 2,
+    "maxParticipants": 10,
+    "durationMinutes": 45,
+    "estimatedCostPerPerson": 0,
+    "moods": [
+      "social",
+      "creative"
+    ],
+    "tags": [
+      "музыка",
+      "компания"
+    ],
+    "preparation": "Подготовьте треки офлайн и небольшую колонку или наушники.",
+    "isActive": true
+  },
+  {
+    "id": "10000000-0000-4000-8000-000000000067",
+    "title": "Встреча за чашкой кофе",
+    "description": "Выберите уютное место и поговорите без подробного плана.",
+    "category": "social",
+    "locations": [
+      "venue"
+    ],
+    "minParticipants": 2,
+    "maxParticipants": 8,
+    "durationMinutes": 60,
+    "estimatedCostPerPerson": 450,
+    "moods": [
+      "social",
+      "calm"
+    ],
+    "tags": [
+      "общение",
+      "выход"
+    ],
+    "preparation": "Уточните доступность места и актуальные цены.",
+    "isActive": true
+  },
+  {
+    "id": "10000000-0000-4000-8000-000000000068",
+    "title": "Вопросы для близкого знакомства",
+    "description": "Задавайте друг другу простые необычные вопросы о мечтах и приятных воспоминаниях.",
+    "category": "social",
+    "locations": [
+      "home",
+      "outdoors"
+    ],
+    "minParticipants": 2,
+    "maxParticipants": 10,
+    "durationMinutes": 30,
+    "estimatedCostPerPerson": 0,
+    "moods": [
+      "social",
+      "calm"
+    ],
+    "tags": [
+      "общение",
+      "компания"
+    ],
+    "preparation": "Каждый может пропустить любой вопрос. Подготовьте пять лёгких тем.",
+    "isActive": true
+  },
+  {
+    "id": "10000000-0000-4000-8000-000000000069",
+    "title": "Совместный план маленького приключения",
+    "description": "Придумайте доступную поездку или встречу и запишите конкретный первый шаг.",
+    "category": "social",
+    "locations": [
+      "home",
+      "venue"
+    ],
+    "minParticipants": 2,
+    "maxParticipants": 10,
+    "durationMinutes": 40,
+    "estimatedCostPerPerson": 0,
+    "moods": [
+      "social",
+      "creative"
+    ],
+    "tags": [
+      "планы",
+      "воображение"
+    ],
+    "preparation": "Возьмите лист или общие заметки и договоритесь о реальном бюджете.",
+    "isActive": true
+  },
+  {
+    "id": "10000000-0000-4000-8000-000000000070",
+    "title": "Общий альбом воспоминаний",
+    "description": "Выберите фотографии со встреч и добавьте к ним короткие смешные подписи.",
+    "category": "social",
+    "locations": [
+      "home"
+    ],
+    "minParticipants": 2,
+    "maxParticipants": 10,
+    "durationMinutes": 60,
+    "estimatedCostPerPerson": 0,
+    "moods": [
+      "social",
+      "creative",
+      "calm"
+    ],
+    "tags": [
+      "фото",
+      "ностальгия"
+    ],
+    "preparation": "Подготовьте фотографии и бесплатный редактор. Согласуйте, какие снимки использовать.",
+    "isActive": true
+  }
+]
